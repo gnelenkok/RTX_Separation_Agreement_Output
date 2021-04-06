@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html lang="en">
+ 
+<head>
+    <title>Title of the form</title>
+    <link rel="stylesheet" href="./css/style.css">
+</head>
+ 
+<body>
+    <table>
+        <thead>
+            <tr>
+                <td colspan="2" class="header">
+                     
+                  <section class="header-content-section">
+                    <div class="header-content-logo-container">
+                      <img src="data:{{location.brandLogo.contentType}};base64,{{location.brandLogo.content}}"/>
+                    </div>
+                    <div class="header-content-text-container">
+                      <div class="header-content-title">{{form.title}}</div>
+                      <div class="header-content-candidate-name">{{candidate.name.first}}{% if candidate.name.middle != null AND candidate.name.middle != '' %} 
+                          {{candidate.name.middle}}{% endif %} {{candidate.name.last}}{% if candidate.name.suffix != null AND candidate.name.suffix != '' %} {{candidate.name.suffix}}{% endif %}</div>
+                      <div class="header-content-date">{{utcNow | date: 'yyyy-MM-dd HH:mm'}} UTC</div>
+                    </div>
+                  </section>
+                </td>
+            </tr>
+        </thead>
+        <tfoot>
+            <tr>
+                <td class="footer">
+                    {{candidate.customfields.RTX_Empl_ID}}
+                </td>
+                <td class="page-number" valign="bottom"></td>
+                 
+            </tr>
+        </tfoot>
+        <tbody>
+            <tr>
+                <td colspan="2" class="content">
+
+                    <!-- Page 1 -->
+                 
+                    <div>
+                        <span class="war">Do not write on this Agreement, except for signing and dating the signature page(s)</span>
+                        <h1>SEPARATION AGREEMENT INCLUDING GENERAL RELEASE AND <br>COVENANT NOT TO SUE</h1>
+                        <span class="lowast">&lowast;&lowast;&lowast;&lowast;&lowast;&lowast;&lowast;&lowast;&lowast;&lowast;&lowast;&lowast;&lowast;&lowast;&lowast;&lowast;&lowast;&lowast;&lowast;&lowast;&lowast;&lowast;&lowast;&lowast;&lowast;&lowast;&lowast;&lowast;&lowast;&lowast;&lowast;&lowast;</span>
+                    </div>
+                    <div>
+                        <h2><u>I. TERMINATION OF EMPLOYMENT</u></h2>
+                        <p class="text">This Separation Agreement Including General Release and Covenant Not to Sue
+                            (“Agreement”) is a contract between {{candidate.customfields.RTX_Empl_ID}}, for yourself, your
+                            family, beneficiaries, assigns, and anyone acting for you (collectively referred to as “you”), and
+                            your employer, Hamilton Sundstrand Corporation, Goodrich Corporation, Rockwell Collins,
+                            Inc., or one of their subsidiaries, collectively d/b/a Collins Aerospace (the “Company”). This
+                            Agreement relates to your involuntary separation from employment with the Company and sets
+                            out the terms under which your employment will terminate. Those terms include certain
+                            payments and benefits to which you are not entitled apart from your accepting this Agreement.
+                            Your last day of work will be {{candidate.customfields.RTX_LastDayOfWork}}. Your employment with the Company will terminate on
+                            {{candidate.customfields.RTX_TerminationDate}}.
+                        </p>
+                        <p class="text">If you sign this Agreement and do not revoke it, you will receive payments and benefits
+                            described in Section II below. If you choose not to sign this Agreement, or if you sign this
+                            Agreement and then revoke it, you will receive only the payments and benefits described in
+                            Section III below. Your decision to sign or not sign this Agreement will have no effect on your
+                            employment termination, which is effective on your termination date
+                        </p>
+                    </div>
+                    <div>
+                        <h2><u>II. PAYMENTS AND BENEFITS IF YOU SIGN THIS AGREEMENT</u></h2>
+                        <p class="text">If you sign and do not revoke this Agreement, you will receive the severance pay and
+                            benefits described in this Section II. These enhanced payments and benefits are available to you
+                            only in exchange for your accepting the terms of this Agreement. By providing these payments
+                            and benefits, the Company does not admit it has any obligation to do so, nor does it admit any
+                            liability whatsoever to you. These payments and benefits do not represent back pay, front pay or
+                            pension benefits, but rather represent consideration for your accepting this Agreement.</p>
+                    </div>
+                    {% if candidate.customfields.RTX_TransitionBenefitAmount != "0" %}
+                    <div>
+                        <span  class="text"><br/><b>A. TRANSITION BENEFIT: </b></span>
+                        <span>You will receive a special one-time transition
+                            benefit based on your years of continuous service, which will be paid in a lump sum. Your years
+                            of continuous service shall be determined as of the termination date. The transition benefit will
+                            be in accordance with the following schedule:</span>
+                    </div>
+                    <div>
+                        <table>
+                            <tr>
+                                <td><u><b>Years of Continuous Service as of Termination Date</b></u></td>
+                                <td><u><b>Transition Benefit</b></u></td>
+                            </tr>
+                            <tr>
+                                <td>31+</td>
+                                <td>$6,000</td>
+                            </tr>
+                            <tr>
+                                <td>21-30</td>
+                                <td>$5,000</td>
+                            </tr>
+                            <tr>
+                                <td>11-20</td>
+                                <td>$4,000</td>
+                            </tr>
+                            <tr>
+                                <td>0-10</td>
+                                <td>$3,000</td>
+                            </tr>
+                        </table>
+                    </div>
+                    {%endif%}
+                    <!--// Page 1 -->
+                    <div>
+                        <p><i><b>You have {{candidate.customfields.RTX_YearsOfService}} years of continuous service.  If you sign this Agreement, you will receive a
+                            transition benefit of {{candidate.customfields.RTX_TransitionBenefitAmount}}, less applicable taxes and withholdings.</b></i></p>
+                    </div>
+                    {% if candidate.customfields.RTX_SeverancePayment != "No" %}
+                    <div>
+                        <span><br/><b>B. SEVERANCE PAYMENT: </b></span>
+                        <span>You will also receive a lump sum payment of
+                            severance equal to one (1) week of base pay for each year of continuous service. Your weekly 
+                            base pay is calculated by dividing your annual base salary in effect on your termination date by 
+                            52.</span>
+                    </div>
+                    <div>
+                        <p><br/><i><b>You have {{candidate.customfields.RTX_YearsOfService}} years of continuous service, and your annual base salary is {{candidate.customfields.RTX_AnnualBaseSalary}}. If you sign this
+                            Agreement, you will receive {{candidate.customfields.RTX_YearsOfService}} week’s severance pay, which has a total value of {{candidate.customfields.RTX_TotalValue}}, less
+                            applicable taxes and withholdings</b></i>.</p>
+                    </div>
+                    {%endif%}
+                    {% if candidate.customfields.RTX_MedDentalLifeIns != "No" %}
+                    <div>
+                        <span><br/><b>C. MEDICAL, DENTAL AND EMPLOYEE LIFE INSURANCE: </b></span>
+                        <span><br/>You will receive <b>{{candidate.customfields.RTX_YearsOfService}}</b> weeks of medical, dental, vision, and basic life insurance
+                            coverage, at the level in effect on your termination date, except that the basic life insurance
+                            maximum is 100% of annual base pay.  These benefits are continued at no charge to you,
+                            beginning on your termination date.  The Company may change your coverage during this period
+                            without advance notice to you.  The Company may discontinue any or all of the above benefits
+                            as of the date you become eligible to receive one or more of these benefits from another
+                            employer or entity.  You agree to notify the Company if you become eligible to receive any
+                            benefit above from another employer or entity during the <b>{{candidate.customfields.RTX_YearsOfService}}</b> weeks after your termination
+                            date.
+                            <br/>
+                            Nothing in this Agreement alters your eligibility, if any, to continue medical, dental, vision, and/or basic life insurance at your own expense under COBRA or by converting to
+                            individual coverage under the terms and conditions of applicable employee benefit plans.
+                            </span>
+                    </div>
+                    {%endif%}
+                    {% if candidate.customfields.RTX_OutplacementServices != "0" %}
+                    <div>
+                        <span><br/><b>D. OUTPLACEMENT: </b></span>
+                        <span>You will be eligible for outplacement services through
+                            Right Management at the Company’s expense following your termination date.  The nature and
+                            duration of this benefit shall be determined by the Company.</span>
+                    </div>
+                    {%endif%}
+                    <div>
+                        <span><br/><b>E. PAYMENTS AND TAXES: </b></span>
+                        <span>Section II transition and severance will not be treated as compensation under any Company Retirement Plan, the Savings Plan or any other
+                            Company benefit plan or program in which you participated.  Income tax withholdings and
+                            applicable Social Security taxes will be deducted from these payments.  You are responsible for
+                            any income or Social Security tax liability, whether federal, state, or local, associated with these
+                            payments.  You acknowledge and agree that you have not obtained tax advice from the Company
+                            or those associated with the Company, and that neither the Company nor those associated with
+                            the Company made representations regarding tax consequences, if any, of these payments.</span>
+                    </div>
+                    <div>
+                        <span><br/><b>F. NO OTHER PAYMENTS/BENEFITS: </b></span>
+                        <span>The payments and benefits described above in this Section II are all that you will receive from the Company in exchange for your
+                            signing and not revoking this Agreement.  You will, however, receive the regular pay plus
+                            accrued, unused vacation described in Section III below regardless of whether you sign this
+                            Agreement.</span>
+                    </div>
+                    <div>
+                        <h2><u>III. PAYMENT AND BENEFITS IF YOU DO NOT SIGN THIS AGREEMENT, OR IF YOU SIGN AND THEN REVOKE IT</u></h2>
+                        <p>If you choose not to sign this Agreement, or if you sign and then revoke it, you will
+                            receive only those payments and benefits described in this Section III.</p>
+                    </div>
+                    <div>
+                        <span><br/><b>A. SEPARATION PAY.</b></span>
+                        <span>You will receive a special one-time transition
+                            benefit based on your years of continuous service, which will be paid in a lump sum. Your years
+                            of continuous service shall be determined as of the termination date. The transition benefit will
+                            be in accordance with the following schedule:</span>
+                    </div>
+                    <div>
+                        <span><br/><b>B. VACATION.</b></span>
+                        <span> You will receive your regular pay through your termination date.  Your final paycheck will issue on the regular payroll cycle.
+                        </span>
+                    </div>
+                    <div>
+                        <span><br/><b>C. BENEFITS CONTINUATION.</b></span>
+                        <span> You will receive four weeks of medical, dental, vision, and basic life insurance coverage, at the level in effect on your termination date, except
+                            that the basic life insurance maximum is 100% of annual base pay.  These benefits are continued
+                            at no charge to you, beginning on your termination date.  The Company may change your
+                            coverage during this period without advance notice to you.  The Company may discontinue any
+                            or all of the above benefits as of the date you become eligible to receive one or more of these
+                            benefits from another employer or entity.  You agree to notify the Company if you become
+                            eligible to receive any benefit above from another employer or entity during the four weeks after
+                            your termination date.
+                            <br/>
+                            Nothing in this Agreement alters your eligibility, if any, to continue medical, dental, vision, and/or basic life insurance at your own expense under COBRA or by converting to
+                            individual coverage under the terms and conditions of applicable employee benefit plans.</span>
+                    </div>
+                    <div>
+                        <span><br/><b>D. TAXES.</b></span>
+                        <span>Income tax withholdings and applicable Social Security taxes will be deducted from the separation pay and any vacation payment.</span>
+                    </div>
+                    <div>
+                        <span class="text"><br/><b>E. NO OTHER PAYMENTS/BENEFITS.  </b></span>
+                        <span class="text">The payments and benefits described in this section are all that you will receive from the Company if you choose not to sign this
+                            Agreement or if you sign this Agreement and then revoke it.</span>
+                    </div>
+                    <div>
+                        <h2 class="text"><u>IV. GENERAL RELEASE OF CLAIMS AND COVENANT NOT TO SUE</u></h2>
+                        <p>If you choose not to sign this Agreement, or if you sign and then revoke it, you will receive only those payments and benefits described in this Section III.</p>
+                    </div>
+                    <div>
+                        <span class="text"><br/><b>A. GENERAL RELEASE OF CLAIMS:</b></span>
+                        <span class="text">  In exchange for the payments and benefits described above in Section II, you agree to release the Company and all of its parents,
+                            subsidiaries, divisions, affiliates and successors (collectively, the “Releasees”) from all claims,
+                            demands, actions or damages you may have against the Company of whatever kind, including
+                            but not limited to those that relate in any way to your employment with the Company or the
+                            termination of that employment.  You also agree to release from liability each Releasee’s agents,
+                            directors, officers, employees, fiduciaries, representatives, successors and assigns (collectively
+                            “those associated with the Releasees”).  This General Release of Claims covers all claims or 
+                            demands based on any facts or events, whether known or unknown by you.
+                            You expressly release claims arising under the federal Employee Retirement Income
+                            Security Act (“ERISA”), the Worker Adjustment and Retraining Notification (“WARN”) Act,
+                            the Age Discrimination in Employment Act (“ADEA”), Title VII of the Civil Rights Act, the
+                            Equal Pay Act, the Americans with Disabilities Act, the Family and Medical Leave Act of 1993,
+                            the Dodd-Frank Wall Street Reform and Consumer Protection Act, and the Sarbanes-Oxley Act,
+                            all as amended, plus any other federal, state or local law dealing with labor and employment
+                            rights or discrimination on any basis, including but not limited to race, color, national origin, sex,
+                            genetic information, age, disability, religion, marital status, sexual orientation, gender identity or
+                            expression, or military or veteran status.  You also agree that this General Release of Claims
+                            includes claims based on contract (express or implied) or tort theories, whether under common
+                            law or otherwise, as well as equitable claims and claims for breach of fiduciary duty.  This
+                            Agreement also releases claims that you suffered any other harm by or through actions of the
+                            Company or those associated with the Company, including, but not limited to claims for
+                            defamation or emotional distress, and claims for attorneys’ fees or any other litigation costs.
+                        </span>
+                    </div>
+                    <div>
+                        <span class="text"><br/><b>B. RELEASE EXCLUSIONS AND ADDITIONAL EMPLOYEE </b></span>
+                        <span class="text"><b>PROTECTIONS:</b>  Nothing in the General Release of Claims applies to: (i) your vested rights, if
+                            any, to pension, savings plan, health or similar benefits under the terms of applicable Company
+                            benefits plans or standard policies; (ii) claims arising under any workers’ compensation statute,
+                            except claims for wrongful discharge or other discrimination in employment for exercising rights
+                            under such a statute; and (iii) claims you may have that arise after the date you sign this
+                            Agreement.
+                            <br/>
+                            Nothing in the General Release of Claims nor anything else in this Agreement limits your rights to: file a 
+                            charge or complaint with an administrative agency, including the U.S. Equal
+                            Employment Opportunity Commission and similar state agencies; provide information to any
+                            federal or state agency or participate in an agency investigation or proceeding; or receive money
+                            from the U.S. Securities and Exchange Commission (“SEC”) as a reward for providing
+                            information to the SEC.  You are, however, waiving all rights to recover money (including
+                            attorneys’ fees) or other individual relief from any Releasee with respect to any claims that are
+                            released in this Agreement.
+                        </span>
+                    </div>
+                    <div>
+                        <span class="text"><br/><b>C. NO FUTURE LAWSUITS / COVENANT NOT TO SUE:</b></span>
+                        <span class="text">  In exchange for payments and benefits described in Section II above, besides releasing all claims covered by the
+                            General Release above and not excluded under the Release Exclusions above, you promise never
+                            to file a lawsuit against the Company, another Releasee or those associated with the Releasees
+                            asserting any claim or demand covered by the General Release above.  In addition, you agree not
+                            to (i) assist any other person or entity in bringing any lawsuit against the Company in any court
+                            unless you are compelled to do so by the court or otherwise by law, or (ii) participate in any class
+                            or collective action lawsuit against any Releasee or those associated with a Releasee.  Excluded
+                            from this Covenant Not to Sue are claims to enforce this Agreement or to challenge its validity
+                            under the ADEA.
+                            <br/>
+                            If you sue any Releasee or those associated with a Releasee in violation of this
+                            Agreement, you will be required to pay all legal expenses, including reasonable attorneys’ fees,
+                            incurred in defending against your suit.
+                            Alternatively, if you sue any Releasee or anyone
+                            associated with a Releasee in violation of this Agreement, you may, at the defendant’s option, be
+                            required to return all Section II monies and benefits paid to you, except for $500.00.       
+                        </span>
+                    </div>
+                    <div>
+                        <h2 class="text"><u>V. FUTURE RELATIONSHIP WITH THE COMPANY </u></h2>
+                        <p class="text">If you sign and do not revoke this Agreement, you promise not to seek hire or rehire for
+                        any job with any Releasee at any time in the future, except as a “Releasee” may permit in
+                        writing. You also agree that this Agreement is sufficient reason for any Releasee to reject any
+                        application you might make for future employment.  Finally, you promise not to apply for or
+                        otherwise seek to participate in any early retirement or voluntary employee separation plan,
+                        program or offer that might be offered by the Company after your termination date.</p>
+                        </div>
+                    <div>
+                        <h2 class="text"><u>VI. INTELLECTUAL PROPERTY AND PRIVATE BUSINESS INFORMATION </u></h2>
+                        <p class="text">Whether or not you sign this Agreement, the Intellectual Property Agreement entered into between you and 
+                            the Company remains in full force and effect after your termination date.  The
+                            Intellectual Property Agreement states that you will not disclose, use or publish any proprietary,
+                            technical or business information developed by, for, or at the expense of the Company, or
+                            assigned or entrusted to the Company, unless such information becomes generally known outside
+                            the Company (except through breach by you of the Intellectual Property Agreement).  Also, you
+                            agree not to disclose, use or publish to any person or entity, or assist in the disclosure,
+                            publication of or use by any person or entity, any business information that became known to
+                            you during your employment with the Company.  Business information includes confidential
+                            information, privileged legal information, technical, scientific, business or financial information.
+                            You must deliver to or leave with the Company all written and other materials containing such
+                            information on or before your termination date.
+                        <br/>
+                        If you sign and do not revoke this Agreement, you agree that:  (i) any unauthorized disclosure, 
+                            violation or threatened violation of the Company’s intellectual property or business
+                            information would cause irreparable damage to the trade secret or proprietary status of the
+                            Company’s information and to the Company; (ii) the Company will be entitled to an injunction
+                            prohibiting you from making any such disclosure, attempted disclosure, violation or threatened
+                            violation; and (iii) if you violate the Intellectual Property Agreement, you will be required to pay
+                            all legal expenses, including reasonable attorneys’ fees, incurred by the Company in enforcing
+                            that agreement.
+                        <br/>
+                        You shall not be held liable, criminally or civilly, under any Federal or State trade secret law 
+                            (including the federal Defend Trade Secrets Act of 2016) for disclosing a Company trade
+                            secret in confidence either directly or indirectly to a Federal, State, or local government official,
+                            or an attorney, for the sole purpose of reporting, or investigating, a suspected violation of law.
+                            Moreover, you may disclose Company trade secrets in a complaint or other document filed in a
+                            lawsuit or other proceeding if such filing is made under seal.  Finally, if you decide not to sign
+                            this Agreement and thereby release all claims for retaliation, and instead file a lawsuit alleging
+                            retaliation by the Company for reporting a suspected violation of the law, you may disclose the
+                            Company trade secrets to your attorney(s) and use the trade secrets in the court proceeding, so
+                            long as any document containing the trade secrets is filed under seal and you do not otherwise
+                            disclose the trade secrets, except pursuant to court order.</p>
+                    </div>
+                    <div>
+                        <h2 class="text"><u>VII. RETURN OF COMPANY MATERIALS </u></h2>
+                        <p class="text">You have returned to the Company all Company-related reports, files, memoranda, notes, records, 
+                            and other documents (whether stored electronically or otherwise) as well as badges,
+                            credit cards, cardkey passes, door and file keys, computer access codes, computer software,
+                            computers, laptops, cell phones, pagers, PDAs or other electronic devices and any other property
+                            that you received or prepared or helped to prepare in connection with your employment.  You
+                            have not retained and will not retain any copies or excerpts of the materials described above, and
+                            that you will not attempt to retrieve or recreate any such materials after your termination date.</p>
+                    </div>
+                    <div>
+                        <h2 class="text"><u>VIII. NON-DISPARAGEMENT </u></h2>
+                        <p class="text">You promise not to make any negative or disparaging remarks to any third party, whether verbally or 
+                            in writing, about the Company or another Releasee or those associated with a
+                            Releasee, including but not limited to remarks about the Releasee’s products, services, and
+                            business practices, and regardless of whether those remarks are made via any social media
+                            forum, networking, blog or other internet site or by some other means.</p>
+                        </div>
+                    <div>
+                        <h2 class="text"><u>IX. CONFIDENTIALITY OF AGREEMENT   </u></h2>
+                        <p class="text">You agree to keep this Agreement’s terms completely confidential, and you will not, either directly or 
+                            indirectly, disclose any information relating to those terms or your termination <br/>from employment to any 
+                            person or entity not a signatory to this Agreement, except your attorney <br/>or immediate family members, who 
+                            shall be informed of and bound by this confidentiality <br/>clause.  If asked by anyone, you, your 
+                            immediate family members, and attorney will state only
+                            that the parties entered into a mutually satisfactory agreement and that the terms are confidential,
+                            unless compelled to say more by a court or agency that has the authority to require them to
+                            testify further.</p>
+                    </div>
+                    <div>
+                        <h2 class="text"><u>X. PERIOD OF REVIEW AND OTHER CONSIDERATIONS</u></h2>
+                        <ol class="text">
+                            <li>
+                                  By this Agreement, you have been advised to consult with an attorney before signing this
+                                Agreement
+                            </li>
+                            <li>
+                                  The payments and benefits described in Section II are enhanced benefits to which you are
+                                not entitled apart from signing this Agreement.
+                            </li>
+                            <li>
+                                  You have up to {{candidate.customfields.RTX_SigningPeriod}} from the date you received this Agreement to
+                                consider it before signing.
+                            </li>
+                            <li>
+                                  If you are employed in the State of California, you have read Section 1542 of the Civil
+                                Code of the State of California, which provides:
+                                <br/>
+                                A general release does not extend to claims that the creditor or releasing party does not
+                                know or suspect to exist in his or her favor at the time of executing the release and that if
+                                known by him or her, would have materially affected his or her settlement with the debtor
+                                or released party
+                                <br/>
+                                You understand that Section 1542 gives you the right not to release existing claims of
+                                which you are not now aware, unless you voluntarily choose to waive this right. Even
+                                though you are aware of this right, you nevertheless hereby voluntarily waive the rights
+                                described in Section 1542, and elect to assume all risks for claims that now exist in your
+                                favor, known or unknown, covered by the General Release of Claims and not excluded
+                                under the Release Exclusions above.
+                            </li>
+                            <li>  If you are employed in the Commonwealth of Massachusetts, you expressly waive the
+                                provisions of the Massachusetts Minimum Fair Wages Act (Mass. Gen. Laws ch. 151),
+                                and the Massachusetts Payment and Wages Act (Mass. Gen. Laws ch. 149), including
+                                claims regarding entitlement to or timely payment of any wages, unpaid wages, unpaid
+                                accrued vacation or PTO, expenses, overtime, commissions, bonuses, piece rate, penalties
+                                or other compensation.
+                            </li>
+                            <li>  This Agreement is not effective or enforceable for seven (7) days after you sign it, and
+                                you may revoke it during that 7-day period (revocation period is 15 days if you are
+                                employed in Minnesota). To revoke this Agreement, you must return a written notice of
+                                revocation to: <br/>
+                                <span>
+                                    <br/>Gerrie Lueck
+                                    <br/>Global People Services
+                                    <br/>Collins Aerospace
+                                    <br/>400 Collins Road NE, M/S 193-108
+                                    <br/>Cedar Rapids, IA 52498
+                                    <br/>peopleservices.collins.us@utc.com
+                                </span>
+                                <br/>
+                                <span><br/>If your written revocation is not received by 5:00 p.m. CST on the seventh day after your
+                                    signature on this Agreement (or fifteenth day after your signature, if you are employed in
+                                    Minnesota), this Agreement will become effective and enforceable at that time.
+                                    Revoking this Agreement does not change the fact that your employment with the
+                                    Company has been terminated.
+                                </span>
+                            </li>
+                            <li>  You will not pursue any internal grievance procedures, either formal or informal, and you
+                                understand that the Company is not obligated or required to pursue any such grievance
+                                procedures.
+                            </li>
+                            <li>  If you violate Sections VI, VIII or IX of this Agreement (Intellectual Property Agreement
+                                and Private Business Information, Non-Disparagement, or Confidentiality of Agreement),
+                                then: (i) you must pay all legal expenses incurred by the Company that flow from that
+                                violation, including the Company’s reasonable attorneys’ fees and other costs; or
+                                alternatively (ii) the Company can require you to return all Section II payments provided
+                                to you under this Agreement except for $500.00
+                            </li>
+                            <li>  If you violate Sections VI, VIII or IX of this Agreement (Intellectual Property Agreement
+                                and Private Business Information, Non-Disparagement, or Confidentiality of Agreement),
+                                then: (i) you must pay all legal expenses incurred by the Company that flow from that
+                                violation, including the Company’s reasonable attorneys’ fees and other costs; or
+                                alternatively (ii) the Company can require you to return all Section II payments provided
+                                to you under this Agreement except for $500.00
+                            </li>
+                            <li> You have reported all hours worked as of the date you signed this Agreement, and have
+                                received all wages or other payments plus benefits to which you are entitled, except as
+                                provided for in this Agreement. You have no known workplace injuries or occupational
+                                diseases that arose from or out of the course of your employment with the Company that
+                                you failed to report. The Company has not denied (or otherwise interfered with or
+                                retaliated against you because of) any leave you requested and for which you were
+                                eligible. You also acknowledge that (i) it is Company policy to encourage reporting
+                                within the Company possible violations of any law, and (ii) no one has interfered with
+                                your ability to report any possible violations.
+                            </li>
+                            <li> This Agreement (including documents attached to or referenced in this Agreement) sets
+                                forth the entire agreement between you and the Company regarding your separation from
+                                employment with the Company. In deciding to sign this Agreement, you have not relied
+                                on any representations, promises, or agreements of any kind except for those set forth in
+                                this Agreement and the documents attached to it.
+                            </li>
+                            <li> By signing this Agreement, you verify that, to the best of your knowledge, your annual
+                                base salary and continuous service information presented in Section II above are
+                                accurate.
+                            </li>
+                        </ol>
+                    </div>
+                    <div>
+                        <span><b>You understand and voluntarily execute this AGREEMENT, INCLUDING THE
+                            GENERAL RELEASE OF CLAIMS, and accept its terms, affirming that your decision to
+                            sign this Agreement has been made freely and without any duress or coercion.
+                        </b></span>
+                    </div>
+
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+</body>
+ 
+</html>

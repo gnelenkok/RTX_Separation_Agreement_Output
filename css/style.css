@@ -1,0 +1,214 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+body {
+    background-color: #f5f7fa;
+    margin: 0px;
+    font-family: Arial;
+    padding-left: 60px;
+    padding-right: 20px;
+    padding-top: 40px;
+    padding-bottom: 40px;
+}
+
+tbody {
+    background-color: #fff;
+    display: flex;
+    max-width: 1200px;
+    min-width: 700px;
+    margin: 0 auto;
+    box-shadow: 5px 9px 20px rgba(0, 0, 0, 0.05);
+}
+
+.content {
+    padding-left: 80px;
+    padding-right: 40px;
+    padding-top: 80px;
+    padding-bottom: 80px;
+    align-content: center;
+    
+}
+
+h1 {
+    padding-top: 25px;
+    padding-bottom: 25px;
+    text-align: center;
+    font-size: 25px;
+}
+.war {
+    display: block;
+    text-align: center;
+    font-style: italic;
+    text-decoration: underline;
+}
+
+.lowast {
+    display: block;
+    text-align: center;
+}
+
+p {
+    text-indent: 1.5em;
+    margin-top: 0;
+}
+    
+  p + p {
+    margin-bottom: 0 
+}
+
+.text {
+    box-sizing: border-box;
+    padding-left: 40px;
+    padding-right: 40px;
+}
+
+
+table {
+    width: 100%;
+}
+
+/* repeating header */
+
+thead {
+    display: table-header-group;
+}
+
+/* repeating footer */
+
+tfoot {
+    display: table-footer-group;
+}
+
+/* forces footer on last page to the bottom */
+
+.content:after {
+    display: block;
+    content: '';
+    margin-bottom: 9mm;
+    /* must be larger than largest paper size you support */
+}
+
+@page {
+    size: auto;
+    margin: 25mm 10mm;
+}
+
+body {
+    margin: 0px;
+    font-family: Arial;
+}
+
+.header {
+    padding-bottom: 5mm;
+}
+
+.footer {
+    padding: 0;
+    padding-top: 10mm;
+    display: flex;
+    flex-direction: row;
+}
+
+.page-number {
+    vertical-align: bottom;
+    text-align: right;
+}
+
+.page-number:after {
+    counter-increment: page;
+    content: "Page "counter(page);
+    white-space: nowrap;
+}
+
+.header-content-section {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-bottom: 2em;
+    border-bottom: 2px solid #D5D5D5;
+}
+
+.header-content-logo-container img {
+    max-height: 50px;
+    width: auto;
+}
+
+.header-content-text-container {
+    text-align: right;
+}
+
+.header-content-text-container .header-content-title {
+    font-weight: bold;
+}
+
+.signature-section {
+    margin-top: 1rem;
+    display: flex;
+}
+
+.signature-flex {
+    width: 75%;
+    display: flex;
+    vertical-align: bottom;
+}
+
+.signature-response {
+    flex: 1;
+    border-bottom: 1px solid #000;
+    margin-left: 0.5rem;
+    padding-left: 0.5rem;
+}
+
+.signature-response img {
+    max-height: 40px;
+    width: auto;
+    vertical-align: bottom;
+}
+
+p {
+margin: 0; padding: 0;
+}
+
+.date-flex {
+    width: 20%;
+    display: flex;
+    vertical-align: bottom;
+    margin-left: 0.5rem;
+}
+
+.date-response {
+    flex: 1;
+    border-bottom: 1px solid #000;
+    margin-left: 0.5rem;
+    padding-left: 0.5rem;
+}
+
+.sign {
+    font-weight:bold;
+}
+
+.sign span {
+    width: 4cm;
+    border-bottom: 0.1em solid #000;
+    display: inline-block;
+    margin-right: 18px;
+}
+
+div.signaturecontainer {
+    display: flex;
+    align-items: flex-end;
+}
+
+div.signatureitems {
+    display: flex;
+    flex-direction: column;
+    margin: 1em;
+    width: 30%;
+    margin-top: 2em;
+}
+
+span.sigtext {
+    border-top: 1px solid black;
+}
